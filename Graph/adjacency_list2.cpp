@@ -39,6 +39,8 @@ public:
 int main()
 {
     Graph g;
+    
+    //false reprsent that edge is directed and 20 represent weight of edge
     g.addEdge("A", "B", false, 20);
     g.addEdge("A", "C", true, 5);
     g.addEdge("A", "D", false, 30);
