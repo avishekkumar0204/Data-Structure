@@ -1,4 +1,6 @@
 // If the graph is unweighted then only we can use BFS algorithm
+// Distance calculated by level order traversal(BFS) is shortest
+// If the graph is weighted then Dijkstra algorithm is used to find shortest path
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,7 +18,7 @@ public:
     void shortestPath(int src,int dest)
     {
         map<int,int> dist;
-        // Initialising the distance of nodes from src node as infinite
+        // Initialising the distance of nodes from src node as infinite afterward we will overwrite the distance when we go through that node
         for(auto it=m.begin();it!=m.end();it++)
         {
             dist[it->first]=INT_MAX;
@@ -34,6 +36,7 @@ public:
                 if(dist[e]==INT_MAX)
                 {
                     q.push(e);
+                    // Overwriting the distance
                     dist[e]=dist[node]+1;
                 }
             }
@@ -50,6 +53,7 @@ int main()
     g.addEdge(5, 1);
     g.addEdge(4, 5);
     g.addEdge(4, 6);
+    // Cheacking wheather code is working properly or not
     g.shortestPath(6,1);
     
 }
